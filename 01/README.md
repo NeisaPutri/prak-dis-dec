@@ -176,6 +176,7 @@ Tentukan tindakan standar saat menjalankan perintah `git pull` untuk mengambil p
 
 **Penjelasan:**
 Opsi *Fast-forward only* dipilih agar proses penarikan data berjalan secara langsung jika tidak ada konflik, dan membatalkan proses dengan aman apabila kondisi fast-forward tidak memungkinkan.
+
 ---
 
 ### 12. Pemilihan Credential Helper
@@ -185,6 +186,7 @@ Pilih fitur pengelola kredensial untuk menangani informasi akun pengguna.
 
 **Penjelasan:**
 Pilih fitur pengelola kredensial untuk menangani informasi akun pengguna.
+
 ---
 
 ### 13. Opsi Konfigurasi Tambahan
@@ -194,6 +196,7 @@ Tentukan fitur tambahan yang ingin diaktifkan pada sistem.
 
 **Penjelasan:**
 Opsi *Enable file system caching* dipilih agar data sistem berkas disimpan sementara di memori untuk meningkatkan performa Git saat pemrosesan.
+
 ---
 
 ### 14. Proses Ekstraksi dan Instalasi
