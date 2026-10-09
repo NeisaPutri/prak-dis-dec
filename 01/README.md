@@ -88,7 +88,7 @@ Beberapa editor yang dapat digunakan antara lain:
 * Vim
 * Editor lainnya
 
-<img src="images/03_Editor.png" width="700">
+<img src="01/images/03_Editor.png" width="700">
 **Penjelasan:**
 Untuk mahasiswa Informatika, Visual Studio Code dapat dipilih karena lebih mudah digunakan untuk mengedit source code maupun file dokumentasi.
 
