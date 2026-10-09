@@ -1,5 +1,7 @@
 # Praktikum Pertemuan 01
 
+**NAMA:**NEISA PUTRI SYIFAUL QOLBY
+**NIM:** 255410020
 **Mata Kuliah:** Sistem Terdistribusi dan Terdesentralisasi
 **Topik:** Git dan GitHub
 
