@@ -376,7 +376,7 @@ Struktur repository dapat diperiksa untuk memastikan file dan folder yang diperl
 
 ---
 
-## MENGELOLA BRANCH, COMMIT, DAN PULL REQUEST
+## MEMEBUAT FILE BARU
 
 Setelah repository berhasil di-*clone*, tahap berikutnya adalah membuat atau mengubah file yang berada di dalam folder repository.
 ## 1. Cek Status
