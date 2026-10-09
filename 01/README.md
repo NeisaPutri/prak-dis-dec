@@ -92,7 +92,8 @@ Untuk mahasiswa Informatika, Visual Studio Code dapat dipilih karena lebih mudah
 
 ---
 
-### 5. Menentukan Nama Branch Utama
+### 4. Pemilihan editor default untuk Git.
+
 Pada proses instalasi Git terdapat pilihan nama branch awal.
 Branch utama dapat menggunakan:
 ```text
@@ -105,13 +106,16 @@ Branch merupakan jalur pengembangan dalam Git. Penggunaan nama `main` sesuai den
 
 ---
 
-### 6. Menentukan PATH Git
+### 5. Pemilihan editor default untuk Git.
+
 Pada pilihan penggunaan Git dari command line, gunakan pilihan yang memungkinkan Git digunakan melalui command prompt maupun Git Bash.
 
-<img src="images/05_PATH_Git.png" width="700">
+<img src="images/05_langkah 5.png" width="700">
 
 **Penjelasan:**
 Dengan pengaturan tersebut, perintah Git dapat dijalankan melalui beberapa terminal pada Windows seperti Command Prompt, PowerShell, maupun Git Bash.
+
+<img src="images/06_pemilihan editor default.png" width="700">
 
 ---
 
