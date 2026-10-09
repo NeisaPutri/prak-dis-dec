@@ -92,6 +92,7 @@ Komponen bawaan (*default*) sudah mencakup semua kebutuhan dasar untuk menjalank
 Tentukan penyunting teks utama untuk Git. Pada praktikum ini digunakan Visual Studio Code.
 
 <img src="images/03_Editor.png" width="700">
+
 **Penjelasan:**
 Untuk mahasiswa Informatika, Visual Studio Code dapat dipilih karena lebih mudah digunakan untuk mengedit source code maupun file dokumentasi.
 
@@ -279,7 +280,7 @@ Langkah ini dilakukan untuk mengakses dashboard akun GitHub sebelum membuat atau
 ## 2. Membuka Menu Pembuatan Repository
 Klik ikon tambah (`+`) pada bagian navigasi atas GitHub, lalu pilih opsi **New repository**.
 
-<img src="images/22_Repository baru.png" width="700">
+<img src="images/22_Repository baru.png" width="500">
 
 **Penjelasan:**
 Menu ini digunakan untuk mengarahkan pengguna ke halaman formulir pembuatan repositori baru di GitHub. 
