@@ -142,7 +142,7 @@ Line ending merupakan karakter yang digunakan untuk menandai akhir sebuah baris 
 ### 8. HTTPS
 Pilih **MinTTY** sebagai terminal yang digunakan untuk mengakses Git Bash.
 
-<img src="images/09_Choosing HTTPS.png.png" width="700">
+<img src="images/09_Choosing HTTPS.png" width="700">
 
 **Penjelasan:**
 Git Bash menyediakan lingkungan terminal yang dapat digunakan untuk menjalankan perintah Git pada Windows.
@@ -204,7 +204,7 @@ Tahap ini menandakan bahwa seluruh komponen Git telah selesai dipasang pada komp
 
 ### 15. Finish
 
-<img src="images/16_Completing Finish.png.png" width="700">
+<img src="images/.png" width="700">
 ---
 
 ### 14. Mengecek Instalasi Git
