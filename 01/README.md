@@ -165,7 +165,7 @@ Pengaturan ini menentukan bagaimana Git menangani perubahan dari repository remo
 ### 10. Configuring
 Pada tahap ini dilakukan pemilihan credential helper.
 
-<img src="images/11_configuring.png.png" width="700">
+<img src="images/11_configuring.png" width="700">
 
 **Penjelasan:**
 Credential helper digunakan untuk membantu proses autentikasi ketika Git berkomunikasi dengan repository remote.
@@ -175,7 +175,7 @@ Credential helper digunakan untuk membantu proses autentikasi ketika Git berkomu
 ### 11. Git Pull
 Pada opsi tambahan, aktifkan **file system caching**.
 
-<img src="images/12_git pull.png.png" width="700">
+<img src="images/12_git pull.png" width="700">
 
 **Penjelasan:**
 File system caching dapat membantu meningkatkan performa Git ketika mengakses sistem file.
@@ -186,7 +186,7 @@ File system caching dapat membantu meningkatkan performa Git ketika mengakses si
 Setelah seluruh konfigurasi selesai, klik:
 **Install**
 
-<img src="images/13_helper.png.png" width="700">
+<img src="images/13_helper.png" width="700">
 Tunggu hingga proses instalasi selesai.
 Setelah proses selesai, klik:
 
@@ -197,7 +197,7 @@ Setelah proses selesai, klik:
 
 ### 14. Installing
 
-<img src="images/15_Installing.png.png" width="700">
+<img src="images/15_Installing.png" width="700">
 
 **Penjelasan:**
 Tahap ini menandakan bahwa seluruh komponen Git telah selesai dipasang pada komputer.
