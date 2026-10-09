@@ -1,9 +1,10 @@
 # Praktikum Pertemuan 01
 
-**NAMA:**NEISA PUTRI SYIFAUL QOLBY
-**NIM:** 255410020
-**Mata Kuliah:** Sistem Terdistribusi dan Terdesentralisasi
-**Topik:** Git dan GitHub
+## Nama : NEISA PUTRI SYIFAUL QOLBY
+
+## Nim : 255410020
+
+## Kelas : Informatika-1
 
 ---
 
@@ -18,11 +19,6 @@ Praktikum minggu pertama bertujuan untuk:
 5. Menghubungkan repository GitHub dengan repository lokal.
 6. Memahami proses `clone`, `add`, `commit`, `push`, dan `pull`.
 7. Memahami penggunaan branch untuk mengembangkan suatu perubahan secara lebih aman.
-8. Memahami cara membuat dan mengelola repository pribadi.
-9. Memahami pengelolaan repository yang berada dalam organisasi.
-10. Memahami konsep fork dan Pull Request.
-11. Memahami proses kolaborasi menggunakan Git dan GitHub.
-12. Mengetahui cara melakukan sinkronisasi perubahan antara repository lokal dan repository GitHub.
 
 ---
 
@@ -46,7 +42,7 @@ Repository GitHub dapat dibuat dengan status **public** maupun **private**. Repo
 
 # C. PEMBAHASAN
 
-## PRAKTIK 1 — INSTALASI GIT
+## INSTALASI GIT
 
 Materi praktikum menyediakan beberapa pilihan instalasi Git. Untuk sistem operasi Windows, instalasi dilakukan menggunakan **Git for Windows**.
 
