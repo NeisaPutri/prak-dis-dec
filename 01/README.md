@@ -98,7 +98,7 @@ Branch utama dapat menggunakan:
 ```text
 main
 ```
-<img src="images/04_Branch_Git.png" width="700">
+<img src="images/04_langkah 4.png" width="700">
 
 **Penjelasan:**
 Branch merupakan jalur pengembangan dalam Git. Penggunaan nama `main` sesuai dengan penggunaan branch utama pada banyak repository GitHub modern dan digunakan dalam praktikum ini.
