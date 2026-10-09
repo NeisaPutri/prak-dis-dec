@@ -105,6 +105,7 @@ Pada tahap ini, tentukan folder Start Menu untuk menyimpan pintasan (*shortcut*)
 
 **Penjelasan:**
 Folder ini berfungsi membuat pintasan Git di Start Menu agar aplikasi mudah diakses saat dibutuhkan.
+
 ---
 
 ### 5. Pemilihan Text Editor Defult
@@ -116,6 +117,7 @@ Pilih penyunting teks bawaan yang akan digunakan oleh Git ketika membutuhkan mas
 
 **Penjelasan:**
 Pengaturan editor default memastikan Git terhubung dengan editor yang sesuai saat menulis pesan commit maupun mengubah konfigurasi.
+
 ---
 
 ### 6. Adjusting Initial Branch
@@ -201,6 +203,7 @@ Proses pemasangan sedang berjalan, sistem mengekstrak dan menyalin seluruh berka
 
 **Penjelasan:**
 Tunggu hingga proses ekstraksi dan penyalinan berkas selesai dikerjakan secara otomatis oleh sistem installer.
+
 ---
 
 ### 15. Finish
@@ -210,8 +213,8 @@ esaikan
 
 **Penjelasan:**
 Klik tombol **Finish** untuk mengakhiri wizard instalasi[cite: 13]. Git kini sudah terpasang dan siap digunakan.
----
 
+---
 
 ## KONFIGURASI GIT
 
@@ -222,6 +225,7 @@ Buka terminal (Command Prompt, PowerShell, atau Git Bash) lalu ketik perintah `g
 
 **Penjelasan:**
 Menjalankan perintah `git` tanpa argumen akan menampilkan daftar opsi dan perintah dasar yang tersedia. Hal ini menandakan bahwa Git telah berhasil terpasang dan siap digunakan pada terminal sistem.
+
 ---
 
 ### 2. Memeriksa Versi Git
@@ -250,6 +254,7 @@ git config --global user.email "neisaneisa425@gmail.com"
 
 **Penjelasan:**
 Pengaturan nama dan email secara global ini bertujuan agar setiap riwayat commit yang dilakukan pada komputer teridentifikasi atas nama pengguna dan email yang terdaftar.
+
 ---
 
 ## 4. Memeriksa Konfigurasi Git
@@ -275,6 +280,7 @@ Buka situs GitHub di peramban web dan lakukan proses login untuk masuk ke profil
 
 **Penjelasan:**
 Langkah ini dilakukan untuk mengakses dashboard akun GitHub sebelum membuat atau mengelola repositori proyek.
+
 ---
 
 ## 2. Membuka Menu Pembuatan Repository
@@ -327,6 +333,7 @@ tree .git/
 
 **Penjelasan:**
 Perintah ini digunakan untuk menampilkan struktur pohon folder .git/ yang berisi konfigurasi, riwayat commit, direktori objects, serta referensi branch repositori lokal.
+
 ---
 
 ## MEMBUAT DAN MENGOLAH FILE BARU
@@ -338,6 +345,7 @@ Buka halaman repositori di GitHub, pilih branch yang berisi perubahan (misalnya 
 
 **Penjelasan:**
 *Pull Request* (PR) digunakan untuk mengajukan gabungan perubahan dari sebuah *branch* kerja ke *branch* utama (`main`) agar dapat ditinjau sebelum digabungkan.
+
 ---
 
 ## 2. Memeriksa Status dan Melakukan Commit
@@ -353,6 +361,8 @@ git commit -m "Add: isi README.md"
 
 **Penjelasan:**
 Perintah git add -A menandai seluruh perubahan berkas untuk dimasukkan ke staging area, sedangkan git commit mencatat perubahan tersebut secara permanen ke dalam riwayat branch kerja.
+
+---
 
 # D. KESIMPULAN
 
