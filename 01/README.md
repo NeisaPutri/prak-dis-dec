@@ -155,7 +155,7 @@ Pada praktikum ini digunakan pilihan default:
 
 **Fast-forward or merge**
 
-<img src="images/10_conversion.png.png" width="700">
+<img src="images/10_conversion.png" width="700">
 
 **Penjelasan:**
 Pengaturan ini menentukan bagaimana Git menangani perubahan dari repository remote ketika perintah `git pull` dijalankan. Pembahasan lebih lanjut mengenai proses merge akan dipelajari pada materi berikutnya.
