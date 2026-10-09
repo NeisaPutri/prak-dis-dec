@@ -207,25 +207,28 @@ Tahap ini menandakan bahwa seluruh komponen Git telah selesai dipasang pada komp
 <img src="images/16_Completing Finish.png" width="700">
 ---
 
-### 14. Mengecek Instalasi Git
+
+### KONFIGURASI GIT
+
+### 1. Verifikasi Git
 Setelah instalasi selesai, buka **Command Prompt**, PowerShell, atau Git Bash.
 Kemudian lakukan pengecekan instalasi Git.
 
-<img src="images/14_CekInstallasi_Git.png" width="700">
+<img src="images/17_verifikasi git.png" width="700">
 
 **Penjelasan:**
 Pengecekan dilakukan untuk memastikan bahwa sistem operasi sudah dapat mengenali perintah Git.
 
 ---
 
-### 15. Mengecek Versi Git
+### 2.pengecekan GIT
 Untuk melihat versi Git yang terpasang, jalankan perintah:
 
 ```bash
 git --version
 ```
 
-<img src="images/15_CekVersion_Git.png" width="700">
+<img src="images/18_Git Version.png" width="700">
 
 **Penjelasan:**
 Perintah `git --version` digunakan untuk mengetahui versi Git yang sedang terpasang.
@@ -234,20 +237,14 @@ Versi Git yang muncul dapat berbeda tergantung versi Git yang terpasang pada kom
 
 ---
 
-# PRAKTIK 2 — KONFIGURASI GIT
-Setelah Git berhasil diinstal, langkah berikutnya adalah melakukan konfigurasi identitas pengguna.
-Git perlu mengetahui nama dan email pengguna karena informasi tersebut akan dicatat pada setiap commit.
-
----
-
-## 1. Membuat Konfigurasi Nama
+## 3. Konfigurasi Username & Email
 Konfigurasi username Git dilakukan menggunakan perintah:
 
 ```bash
 git config --global user.name "Nama Anda"
 ```
 
-<img src="images/16_Username_Configurasi.png" width="700">
+<img src="images/19_Config username.png" width="700">
 
 **Penjelasan:**
 Perintah `git config` digunakan untuk mengatur konfigurasi Git.
@@ -256,26 +253,16 @@ Parameter:
 ```text
 --global
 ```
-berarti konfigurasi tersebut berlaku secara global untuk pengguna komputer.
-Sedangkan:
-
-```text
-user.name
-```
-
-digunakan untuk menentukan nama pengguna yang akan tercatat dalam commit.
-Konfigurasi nama biasanya cukup dilakukan satu kali, kecuali pengguna ingin mengubahnya.
-
 ---
 
-## 2. Membuat Konfigurasi Email
+## 4. cek konfig git 
 Konfigurasi email dilakukan menggunakan perintah:
 
 ```bash
 git config --global user.email "email@example.com"
 ```
 
-<img src="images/17_UserEmail_Configurasi.png" width="700">
+<img src="images/20_Cek Konfigurasi git.png" width="700">
 
 **Penjelasan:**
 Email digunakan sebagai salah satu identitas pengguna Git dan akan dicatat pada setiap commit.
@@ -283,14 +270,16 @@ Email yang digunakan sebaiknya merupakan email yang terhubung dengan akun GitHub
 
 ---
 
-## 3. Mengatur Branch Default
+### Membuat Repository
+
+## 1. cek konfig git 
 Branch default dapat diatur menjadi `main` menggunakan perintah:
 
 ```bash
 git config --global init.defaultBranch main
 ```
 
-<img src="images/18_Branch_Configurasi.png" width="700">
+<img src="images/21_Login Github.png" width="700">
 
 **Penjelasan:**
 Konfigurasi tersebut menentukan bahwa ketika repository baru dibuat menggunakan:
@@ -298,25 +287,28 @@ Konfigurasi tersebut menentukan bahwa ketika repository baru dibuat menggunakan:
 ```bash
 git init
 ```
-
+## 2. Membuat Repository baru
 branch awal yang digunakan akan memiliki nama:
 
 ```text
 main
 ```
-
+<img src="images/22_Repository baru.pngpng" width="700">
 Pengaturan ini membuat nama branch utama konsisten dengan repository GitHub yang digunakan dalam praktikum.
 
 ---
 
-## 4. Mengecek Konfigurasi Git
+# contoh nama 
+
+<img src="images/23_contoh nama.png" width="700">
 Untuk melihat konfigurasi Git yang telah tersimpan, jalankan:
 
 ```bash
 git config --list
 ```
+## 3. hasil repository baru
 
-<img src="images/19_CekConfig_Configurasi.png" width="700">
+<img src="images/24_Hasil Repository.png" width="700">
 
 **Penjelasan:**
 Perintah `git config --list` digunakan untuk menampilkan konfigurasi Git yang tersimpan pada komputer.
@@ -330,67 +322,9 @@ Dari hasil tersebut dapat diperiksa apakah:
 
 ---
 
-# PRAKTIK 3 — MEMBUAT REPOSITORY GITHUB
 
-Setelah memahami dasar Git dan melakukan konfigurasi Git, langkah berikutnya adalah membuat repository pada GitHub.
 
-Repository GitHub akan digunakan sebagai **repository remote** untuk menyimpan project dan melakukan sinkronisasi dengan repository lokal.
-
-## 1. Login ke GitHub
-
-Buka website GitHub melalui browser, kemudian login menggunakan akun GitHub yang telah dimiliki.
-
-<img src="images/20_LoginGitHub_Repo.png" width="700">
-
-**Penjelasan:**
-
-Login diperlukan agar pengguna dapat membuat dan mengelola repository pada akun GitHub.
-
----
-
-## 2. Membuat Repository Baru
-
-Setelah berhasil login, buat repository baru dengan langkah berikut:
-
-1. Klik tanda **+** pada bagian kanan atas halaman GitHub.
-2. Pilih **New repository**.
-3. Masukkan nama repository.
-4. Tambahkan deskripsi repository jika diperlukan.
-5. Tentukan visibility repository, yaitu **Public** atau **Private**.
-6. Klik **Create repository**.
-
-<img src="images/21_MembuatRepoBaru_Repo.png" width="700">
-
-### Contoh Nama dan Deskripsi Repository
-
-Nama repository dapat disesuaikan dengan kebutuhan project.
-
-<img src="images/22_NamaDanDeskripsi_Repo.png" width="700">
-
-**Penjelasan:**
-
-Nama repository digunakan sebagai identitas project pada GitHub. Deskripsi dapat digunakan untuk memberikan informasi singkat mengenai isi atau tujuan repository.
-
-Repository dapat dibuat dengan dua pilihan visibility:
-
-* **Public** — repository dapat dilihat oleh pengguna lain.
-* **Private** — repository hanya dapat diakses oleh pengguna yang memiliki izin.
-
----
-
-## 3. Hasil Pembuatan Repository
-
-Setelah proses pembuatan repository berhasil, GitHub akan menampilkan halaman repository yang telah dibuat.
-
-<img src="images/23_HasilRepo_Repo.png" width="700">
-
-Repository tersebut akan menjadi **repository remote** yang digunakan untuk menyimpan project secara online.
-
-Repository kosong dapat dibuat terlebih dahulu, kemudian repository tersebut dapat di-*clone* ke komputer lokal untuk mulai digunakan.
-
----
-
-# PRAKTIK 4 — CLONE REPOSITORY
+## CLONE REPOSITORY
 
 Setelah repository berhasil dibuat pada GitHub, repository tersebut dapat disalin ke komputer lokal menggunakan perintah `git clone`.
 
@@ -407,7 +341,7 @@ Contoh:
 git clone https://github.com/username/nama-repository.git
 ```
 
-<img src="images/24_CloneRepo_Repo.png" width="700">
+<img src="images/25_Cloning.png" width="700">
 
 **Penjelasan:**
 Perintah `git clone` digunakan untuk membuat salinan repository remote dari GitHub ke komputer lokal.
@@ -419,7 +353,7 @@ Dengan melakukan clone, pengguna akan mendapatkan:
 
 ---
 
-## 2. Masuk ke Folder Repository
+## 2. Struktur
 
 Setelah proses clone selesai, masuk ke folder repository menggunakan perintah:
 
@@ -433,7 +367,7 @@ Contoh:
 cd praktikum-sistem-terdistribusi
 ```
 
-<img src="images/25_TreeGit_Repo.png" width="700">
+<img src="images/26_Struktur.png" width="700">
 
 **Penjelasan:**
 Perintah `cd` atau **change directory** digunakan untuk berpindah ke folder repository yang telah di-*clone*.
@@ -442,10 +376,10 @@ Struktur repository dapat diperiksa untuk memastikan file dan folder yang diperl
 
 ---
 
-# PRAKTIK 5 — MEMBUAT DAN MENGUBAH FILE
+## MENGELOLA BRANCH, COMMIT, DAN PULL REQUEST
 
 Setelah repository berhasil di-*clone*, tahap berikutnya adalah membuat atau mengubah file yang berada di dalam folder repository.
-## 1. Membuat File Baru
+## 1. Cek Status
 Buat sebuah file baru di dalam folder repository.
 Contoh file:
 
@@ -455,7 +389,7 @@ README.md
 
 atau file lain sesuai dengan kebutuhan praktikum.
 
-<img src="images/26_UpdateFile_Repo.png" width="700">
+<img src="images/27_Status.png" width="700">
 
 **Penjelasan:**
 File yang dibuat atau diubah di dalam repository lokal akan terdeteksi oleh Git sebagai perubahan (*changes*).
