@@ -204,7 +204,7 @@ Tahap ini menandakan bahwa seluruh komponen Git telah selesai dipasang pada komp
 
 ### 15. Finish
 
-<img src="images/.png" width="700">
+<img src="images/16_Completing Finish.png" width="700">
 ---
 
 ### 14. Mengecek Instalasi Git
