@@ -74,7 +74,7 @@ Pada halaman awal installer, klik:
 Kemudian tentukan lokasi instalasi Git. Jika tidak ada kebutuhan khusus, lokasi default dapat digunakan.
 Selanjutnya akan muncul pilihan komponen. Pada tahap ini dapat menggunakan pilihan default.
 
-<img src="images/02_Components_Git.png" width="700">
+<img src="images/02_Components.png" width="700">
 
 **Penjelasan:**
 Pada bagian ini pengguna dapat menentukan komponen tambahan yang akan dipasang bersama Git. Untuk kebutuhan praktikum, pengaturan bawaan installer dapat digunakan.
