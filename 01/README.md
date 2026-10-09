@@ -46,7 +46,6 @@ Repository GitHub dapat dibuat dengan status **public** maupun **private**. Repo
 
 ## PRAKTIK 1 — INSTALASI GIT
 
-### 1. Persiapan
 Materi praktikum menyediakan beberapa pilihan instalasi Git. Untuk sistem operasi Windows, instalasi dilakukan menggunakan **Git for Windows**.
 
 Setelah proses instalasi selesai, keberhasilan instalasi dapat diperiksa menggunakan perintah:
@@ -59,29 +58,29 @@ Perintah tersebut akan menampilkan versi Git yang terpasang pada komputer.
 
 ---
 
-### 2. Download Git
+### 1. Download Git
 Git dapat diunduh melalui website resmi Git.
 
-<img src="images/01_Download_Git.png" width="700">
+<img src="images/01_Install.png" width="700">
 
 Setelah installer berhasil diunduh, jalankan file installer tersebut dengan melakukan **double click**.
 
 ---
 
-### 3. Proses Instalasi
+### 2. Proses Instalasi
 Pada halaman awal installer, klik:
 **Next**
 Kemudian tentukan lokasi instalasi Git. Jika tidak ada kebutuhan khusus, lokasi default dapat digunakan.
 Selanjutnya akan muncul pilihan komponen. Pada tahap ini dapat menggunakan pilihan default.
 
-<img src="images/02_Components.png" width="700">
+<img src="images/02_Komponen.png" width="700">
 
 **Penjelasan:**
 Pada bagian ini pengguna dapat menentukan komponen tambahan yang akan dipasang bersama Git. Untuk kebutuhan praktikum, pengaturan bawaan installer dapat digunakan.
 
 ---
 
-### 4. Memilih Text Editor
+### 3. Memilih Text Editor
 Git membutuhkan text editor yang dapat digunakan ketika Git memerlukan editor untuk membuat pesan commit atau melakukan konfigurasi tertentu.
 Beberapa editor yang dapat digunakan antara lain:
 * Visual Studio Code
@@ -89,7 +88,7 @@ Beberapa editor yang dapat digunakan antara lain:
 * Vim
 * Editor lainnya
 
-<img src="images/03_Program Files.png" width="700">
+<img src="images/03_Editor.png" width="700">
 **Penjelasan:**
 Untuk mahasiswa Informatika, Visual Studio Code dapat dipilih karena lebih mudah digunakan untuk mengedit source code maupun file dokumentasi.
 
