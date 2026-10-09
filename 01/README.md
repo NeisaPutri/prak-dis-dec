@@ -119,19 +119,19 @@ Dengan pengaturan tersebut, perintah Git dapat dijalankan melalui beberapa termi
 
 ---
 
-### 7. Mengatur HTTPS
+### 6. Pemilihan Brach Git
 Untuk koneksi repository GitHub, Git dapat menggunakan HTTPS.
 
-<img src="images/06_HTTPS_Git.png" width="700">
+<img src="images/07_Branch.png" width="700">
 
 Pada installer Git for Windows, gunakan pilihan library HTTPS yang direkomendasikan oleh installer.
 
 ---
 
-### 8. Konversi Line Ending
+### 7. Instalasi Git
 Pada tahap berikutnya dilakukan pengaturan konversi akhir baris atau **line ending**.
 
-<img src="images/07_EndingConversions_Git.png" width="700">
+<img src="images/08_Instalasi git.png" width="700">
 
 
 **Penjelasan:**
@@ -139,64 +139,72 @@ Line ending merupakan karakter yang digunakan untuk menandai akhir sebuah baris 
 
 ---
 
-### 9. Pemilihan Terminal
+### 8. HTTPS
 Pilih **MinTTY** sebagai terminal yang digunakan untuk mengakses Git Bash.
 
-<img src="images/08_TerminalMinTTY_Git.png" width="700">
+<img src="images/09_Choosing HTTPS.png.png" width="700">
 
 **Penjelasan:**
 Git Bash menyediakan lingkungan terminal yang dapat digunakan untuk menjalankan perintah Git pada Windows.
 
 ---
 
-### 10. Pengaturan Git Pull
+### 9. Conversion
 Tetapkan perilaku standar dari `git pull`.
 Pada praktikum ini digunakan pilihan default:
 
 **Fast-forward or merge**
 
-<img src="images/09_GitPullMarge_Git.png" width="700">
+<img src="images/10_conversion.png.png" width="700">
 
 **Penjelasan:**
 Pengaturan ini menentukan bagaimana Git menangani perubahan dari repository remote ketika perintah `git pull` dijalankan. Pembahasan lebih lanjut mengenai proses merge akan dipelajari pada materi berikutnya.
 
 ---
 
-### 11. Memilih Credential Helper
+### 10. Configuring
 Pada tahap ini dilakukan pemilihan credential helper.
 
-<img src="images/10_CredentialHelper_Git.png" width="700">
+<img src="images/11_configuring.png.png" width="700">
 
 **Penjelasan:**
 Credential helper digunakan untuk membantu proses autentikasi ketika Git berkomunikasi dengan repository remote.
 
 ---
 
-### 12. Pengaturan Extra Options
+### 11. Git Pull
 Pada opsi tambahan, aktifkan **file system caching**.
 
-<img src="images/11_ExtraOptions_Git.png" width="700">
+<img src="images/12_git pull.png.png" width="700">
 
 **Penjelasan:**
 File system caching dapat membantu meningkatkan performa Git ketika mengakses sistem file.
 
 ---
 
-### 13. Penyelesaian Instalasi
+### 12.Helper
 Setelah seluruh konfigurasi selesai, klik:
 **Install**
 
-<img src="images/12_InstallGit_Git.png" width="700">
+<img src="images/13_helper.png.png" width="700">
 Tunggu hingga proses instalasi selesai.
 Setelah proses selesai, klik:
 
+### 13. Enable
+
+<img src="images/14_Enable.png" width="700">
 **Finish**
 
-<img src="images/13_FinishInstall_Git.png" width="700">
+### 14. Installing
+
+<img src="images/15_Installing.png.png" width="700">
 
 **Penjelasan:**
 Tahap ini menandakan bahwa seluruh komponen Git telah selesai dipasang pada komputer.
 
+### 15. Finish
+
+<img src="images/16_Completing Finish.png.png" width="700">
 ---
 
 ### 14. Mengecek Instalasi Git
