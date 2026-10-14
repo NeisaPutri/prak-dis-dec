@@ -1,10 +1,11 @@
-# Praktikum Sistem terdistribusi dan terdesentralisasi
+# Praktikum Pertemuan 01
 
-## Pertemuan Modul 02: Komunikasi Antar Proses pada Sistem Terdistribusi
+## Nama : NEISA PUTRI SYIFAUL QOLBY
 
-## Nama :
-## Nim :
-## Kelas :
+## Nim : 255410020
+
+## Kelas : Informatika-1
+---
 
 ## Bagian 1: Pengelolaan Proses pada Sistem Operasi
 
@@ -100,6 +101,8 @@ app = GraphQL(schema)
 
 1. Menjalankan server Strawberry dengan Uvicorn:
    ![Server Running](./images/14-server-running.png)
+
+   ---
 
 2. Pengujian Query `books` di GraphQL Playground Browser:
    ![GraphQL Playground](./images/15-graphql-playground.png)
