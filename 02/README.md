@@ -1,4 +1,4 @@
-# Praktikum Pertemuan 01
+# Praktikum Pertemuan 02
 
 ## Nama : NEISA PUTRI SYIFAUL QOLBY
 
