@@ -106,3 +106,42 @@ app = GraphQL(schema)
 2. Pengujian Query `books` di GraphQL Playground Browser:
 
 ![GraphQL Playground](./images/15-graphql-playground.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p align="center">
+
+**Praktikum Pert 1 — Git dan GitHub**
+
+*Sistem Terdistribusi dan Terdesentralisasi*
+
+</p>
