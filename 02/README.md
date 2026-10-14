@@ -140,7 +140,7 @@ app = GraphQL(schema)
 
 <p align="center">
 
-**Praktikum Pert 1 — Git dan GitHub**
+**Praktikum Pert 2 — Git dan GitHub**
 
 *Sistem Terdistribusi dan Terdesentralisasi*
 
