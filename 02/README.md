@@ -100,9 +100,9 @@ app = GraphQL(schema)
 ## Pengujian Server GraphQL
 
 1. Menjalankan server Strawberry dengan Uvicorn:
-   ![Server Running](./images/14-server-running.png)
 
-   ---
+![Server Running](./images/14-server-running.png)
 
 2. Pengujian Query `books` di GraphQL Playground Browser:
-   ![GraphQL Playground](./images/15-graphql-playground.png)
+
+![GraphQL Playground](./images/15-graphql-playground.png)
