@@ -117,3 +117,25 @@ Pengujian eksekusi thread secara *asynchronous* menggunakan `multithreaded-examp
      * Candidate menaikkan nilai `Term`, memilih dirinya sendiri, dan mengirim permintaan suara (*RequestVote*) ke node lain.
      * Jika Candidate memperoleh suara mayoritas ($> N/2$), Candidate resmi terpilih menjadi **LEADER**.
      * Leader lalu mengirimkan sinyal *heartbeat* secara berkala ke semua Follower untuk mempertahankan posisinya dan mencegah *election* baru.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <p align="center">
+
+**Praktikum Pert 3 — Git dan GitHub**
+
+*Sistem Terdistribusi dan Terdesentralisasi*
+
+</p>
