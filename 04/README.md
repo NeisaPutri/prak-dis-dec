@@ -248,7 +248,9 @@ ORDER BY YearMonth DESC;
 ![Hasil Analytics Node 3](images/11-ignite-check-replica.png)
 
 Matikan semua node: 
-(images/12-ignite-down.png)
+![Ignite Down](images/12-ignite-down.png)
+
+---
 
 
 
