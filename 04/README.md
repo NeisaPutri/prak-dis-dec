@@ -9,6 +9,7 @@
 
 ---
 
+
 ## Modul 04: Konsistensi dan Replikasi pada Sistem Terdistribusi
 
 Repositori ini berisi file konfigurasi, skrip SQL, serta laporan pengerjaan praktikum **Modul 04** untuk mata kuliah **Sistem Terdistribusi dan Terdesentralisasi**.
@@ -483,3 +484,36 @@ ORDER BY YearMonth DESC;
 
 **Hasil Query Analitis di Node 3:**
 ![Hasil Analytics Node 3](images/11-ignite-node3-analytics.png)
+
+Matikan semua node: 
+(images/12-ignite-down.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <p align="center">
+
+**Praktikum Pert 3 — Git dan GitHub**
+
+*Sistem Terdistribusi dan Terdesentralisasi*
+
+</p>
