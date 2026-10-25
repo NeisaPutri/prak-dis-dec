@@ -243,11 +243,12 @@ FROM Invoice i
 GROUP BY EXTRACT(YEAR FROM i.InvoiceDate), EXTRACT(MONTH FROM i.InvoiceDate)
 ORDER BY YearMonth DESC;
 ```
+**Hasil Verifikasi Replikasi di Node 2:**
 
-**Hasil Query Analitis di Node 3:**
-![Hasil Analytics Node 3](images/11-ignite-check-replica.png)
+![Verifikasi Node 2](images/11-ignite-check-replica.png)
 
-Matikan semua node: 
+Matikan semua node:
+
 ![Ignite Down](images/12-ignite-down.png)
 
 ---
