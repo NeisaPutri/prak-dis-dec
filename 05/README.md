@@ -10,30 +10,14 @@
 
 # MODUL 5: FAULT TOLERANCE
 
-Praktikum ini membahas penerapan toleransi kesalahan pada sistem terdistribusi melalui *load balancing* dan *failure detection*. Aplikasi web BlackSheep dijalankan dalam beberapa container dan diakses melalui Nginx, kemudian ketersediaan layanan dan strategi pemulihan kegagalan dipelajari menggunakan heartbeat, retry, dan circuit breaker.
-
-## Struktur Folder
-
-- `images/`: Tangkapan layar langkah dan hasil praktikum.
-- `load-balancing/blacksheep_lb/`: Aplikasi web BlackSheep dan Dockerfile aplikasi.
-- `load-balancing/nginx/`: Dockerfile serta konfigurasi Nginx sebagai *load balancer*.
-- `load-balancing/docker-compose.yml`: Orkestrasi container aplikasi dan Nginx.
-- `heartbeat/check-server.py`: Skrip untuk menguji koneksi ke host dan port.
-- `failure-detection/check-retry.py`: Contoh permintaan HTTP dengan mekanisme retry dari Tenacity.
-- `failure-detection/check-circuit-breaker.py`: Contoh permintaan HTTP dengan mekanisme circuit breaker dari PyBreaker.
-
----
-
 # A. TUJUAN
 
 Praktikum ini bertujuan untuk:
-
-1. Memahami konsep *fault tolerance* dan perannya dalam menjaga ketersediaan layanan pada sistem terdistribusi.
-2. Menerapkan *load balancing* dengan Nginx untuk meneruskan permintaan ke beberapa instance aplikasi.
-3. Menjalankan dan mengelola beberapa service menggunakan Docker Compose.
-4. Memeriksa ketersediaan server menggunakan koneksi ke host dan port melalui skrip heartbeat.
-5. Memahami mekanisme retry dengan jeda bertahap untuk menghadapi kegagalan koneksi sementara.
-6. Memahami circuit breaker sebagai mekanisme untuk membatasi permintaan ke layanan yang terus mengalami kegagalan.
+1. Memahami penerapan *fault tolerance* pada sistem terdistribusi.
+2. Menjalankan beberapa replika aplikasi web menggunakan Docker Compose.
+3. Menggunakan Nginx sebagai pintu masuk dan *load balancer* untuk aplikasi.
+4. Memahami deteksi kegagalan melalui pemeriksaan ketersediaan layanan.
+5. Mempelajari strategi pemulihan komunikasi menggunakan *retry* dan *circuit breaker*.
 
 ---
 
@@ -41,19 +25,15 @@ Praktikum ini bertujuan untuk:
 
 ## 1. Fault Tolerance
 
-*Fault tolerance* adalah kemampuan sistem untuk tetap menyediakan layanan ketika sebagian komponen mengalami kegagalan. Pada sistem terdistribusi, kegagalan jaringan, server, atau proses dapat mengganggu layanan. Redundansi dan deteksi kegagalan merupakan beberapa pendekatan untuk mengurangi dampaknya.
+*Fault tolerance* adalah kemampuan sistem untuk tetap menyediakan layanan ketika sebagian komponennya mengalami gangguan. Salah satu pendekatannya adalah menjalankan beberapa replika layanan dan mendeteksi kegagalan agar permintaan tidak bergantung pada satu proses saja.
 
 ## 2. Load Balancing
 
-*Load balancing* membagi atau meneruskan permintaan klien ke beberapa instance layanan. Nginx bertindak sebagai titik akses (proxy) di depan aplikasi, sedangkan Docker Compose menjalankan service aplikasi dan Nginx. Dengan lebih dari satu instance aplikasi, layanan tidak hanya bergantung pada satu container.
+*Load balancing* membagi atau meneruskan permintaan masuk ke layanan di belakangnya. Pada praktikum ini, aplikasi BlackSheep dijalankan sebagai service `bs_app`, sedangkan Nginx menerima permintaan pada port 80 dan meneruskannya ke aplikasi.
 
-## 3. Failure Detection dan Heartbeat
+## 3. Failure Detection, Retry, dan Circuit Breaker
 
-*Failure detection* adalah proses mengidentifikasi apakah suatu layanan dapat dijangkau. Pada praktikum ini, skrip heartbeat mencoba membuka koneksi TCP ke host dan port yang diberikan. Koneksi berhasil menunjukkan server dapat dijangkau pada saat pemeriksaan; kegagalan koneksi menghasilkan status server tidak aktif.
-
-## 4. Retry dan Circuit Breaker
-
-Retry mencoba kembali permintaan yang gagal, biasanya dengan jeda yang meningkat (*exponential backoff*) agar tidak terus-menerus membebani layanan. Circuit breaker memantau kegagalan dan dapat membuka sirkuit setelah batas kegagalan tercapai, sehingga permintaan berikutnya dihentikan sementara sebelum layanan dicoba kembali.
+*Failure detection* memeriksa apakah layanan dapat dijangkau. Pemeriksaan sederhana dapat dilakukan dengan mencoba membuat koneksi ke alamat dan port layanan. *Retry* mencoba kembali permintaan yang gagal, sedangkan *circuit breaker* menghentikan sementara permintaan setelah sejumlah kegagalan agar layanan yang bermasalah tidak terus-menerus dibebani.
 
 ---
 
@@ -61,62 +41,94 @@ Retry mencoba kembali permintaan yang gagal, biasanya dengan jeda yang meningkat
 
 ## 4.1 Load Balancing Aplikasi
 
-### 1. Persiapan Lingkungan dan Dependensi
+### 1. Persiapan Environment dan Instalasi BlackSheep
 
-Lingkungan pengembangan disiapkan menggunakan `uv`. Pustaka BlackSheep dan CLI-nya dipasang untuk membuat serta menjalankan aplikasi web Python.
+Saya menyiapkan environment Python menggunakan `uv`, kemudian memasang BlackSheep dan CLI-nya untuk membuat aplikasi web.
 
 Perintah yang digunakan:
 
 ```powershell
 uv venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 uv pip install blacksheep blacksheep-cli
 ```
 
-Hasil instalasi pustaka ditunjukkan pada tangkapan layar berikut.
-
 <img src="images/01_Persiapan.png" width="700">
 
-**Penjelasan:** Keluaran terminal menunjukkan paket BlackSheep, BlackSheep CLI, dan dependensi terkait berhasil dipasang pada lingkungan praktikum.
+**Penjelasan:**
+Terminal menunjukkan proses instalasi dependensi BlackSheep dan `blacksheep-cli` telah selesai. Paket-paket yang diperlukan berhasil dipasang sehingga environment siap digunakan untuk membuat aplikasi.
 
 ---
 
 ### 2. Membuat dan Menjalankan Aplikasi BlackSheep
 
-Proyek aplikasi dibuat menggunakan CLI BlackSheep dengan nama `blacksheep_lb`. Setelah dependensi proyek dipasang, aplikasi dijalankan dalam mode pengembangan.
+Aplikasi dibuat dengan CLI BlackSheep menggunakan nama proyek `blacksheep_lb`. Setelah dependensi proyek dipasang, aplikasi dijalankan untuk memastikan server pengembangan dapat aktif.
+
+Perintah yang digunakan:
 
 ```powershell
 blacksheep create
 cd blacksheep_lb
 uv pip install -r requirements.txt
-python dev.py
+py dev.py
 ```
 
 <img src="images/02-dev-py.png" width="700">
 
+**Penjelasan:**
+Output CLI memperlihatkan proyek `blacksheep_lb` berhasil dibuat. Template proyek menggunakan pola MVC dan menyediakan petunjuk untuk masuk ke direktori proyek serta menjalankan server.
+
 <img src="images/02-Dev-py2.png" width="700">
 
-**Penjelasan:** Proyek `blacksheep_lb` berhasil dibuat. Saat dijalankan secara lokal, server Uvicorn melaporkan aplikasi aktif di `http://localhost:44777`.
+**Penjelasan:**
+Dependensi proyek berhasil diperiksa dan server pengembangan berjalan pada `http://localhost:44777`. Pesan *application startup complete* menandakan aplikasi siap menerima permintaan lokal.
 
 ---
 
-### 3. Menyiapkan Dockerfile dan Nginx
+### 3. Memeriksa Struktur Proyek
 
-Dockerfile aplikasi digunakan untuk membangun image aplikasi BlackSheep. Konfigurasi Nginx mendefinisikan upstream `backend` yang mengarah ke service `bs_app` pada port 80, kemudian meneruskan permintaan yang diterima di port 80 ke upstream tersebut.
+Struktur proyek diperiksa sebelum dibuat menjadi image Docker.
+
+Perintah yang digunakan:
+
+```powershell
+ls
+```
 
 <img src="images/03-struktur-folder.png" width="700">
 
-<img src="images/04-dockerfile.png" width="700">
-
-<img src="images/05-nginx-conf.png" width="700">
-
-**Penjelasan:** Struktur proyek memisahkan aplikasi, konfigurasi Nginx, dan berkas orkestrasi. Konfigurasi ini menempatkan Nginx sebagai pintu masuk aplikasi di dalam jaringan Docker.
+**Penjelasan:**
+Tangkapan layar memperlihatkan berkas dan direktori utama aplikasi, seperti `app`, `domain`, `tests`, `dev.py`, `requirements.txt`, serta `Dockerfile`. Struktur ini menjadi konteks build aplikasi pada Docker.
 
 ---
 
-### 4. Membangun dan Menjalankan Container
+### 4. Menyiapkan Dockerfile Aplikasi
 
-Dari direktori `05/load-balancing`, image aplikasi dan Nginx dibangun, kemudian service dijalankan dengan dua replika aplikasi:
+Dockerfile digunakan untuk membangun image aplikasi. Konfigurasi pada tangkapan layar menggunakan image Python, memasang dependensi sistem dan Python, membuka port 80, lalu menjalankan aplikasi dengan Uvicorn.
+
+<img src="images/04-dockerfile.png" width="700">
+
+**Penjelasan:**
+Dockerfile memisahkan tahap build dependensi dan tahap image aplikasi yang dijalankan. Perintah akhir menjalankan `app.main:app` pada `0.0.0.0:80`, sehingga aplikasi dapat menerima koneksi dari container lain dalam jaringan Docker.
+
+---
+
+### 5. Mengatur Nginx sebagai Reverse Proxy
+
+Nginx dikonfigurasi untuk mendengarkan pada port 80 dan meneruskan permintaan dari lokasi `/` ke upstream `backend`.
+
+<img src="images/05-nginx-conf.png" width="700">
+
+**Penjelasan:**
+Blok `upstream backend` mengarah ke service `bs_app` pada port 80. Dengan demikian, klien mengakses Nginx sebagai endpoint depan, bukan mengakses container aplikasi secara langsung.
+
+---
+
+### 6. Build dan Menjalankan Beberapa Replika
+
+Docker Compose digunakan untuk membangun image aplikasi dan Nginx, membuat jaringan, serta menjalankan dua replika `bs_app` bersama container Nginx.
+
+Perintah yang digunakan dari direktori `load-balancing`:
 
 ```powershell
 docker compose up --build -d --scale bs_app=2
@@ -124,85 +136,93 @@ docker compose up --build -d --scale bs_app=2
 
 <img src="images/06-docker-compose-up.png" width="700">
 
-**Penjelasan:** Proses build selesai dan Docker menjalankan dua container `bs_app` serta satu container `nginx`. Nginx memublikasikan port 80 container ke port 80 pada host.
+**Penjelasan:**
+Proses build selesai dan Docker melaporkan dua container aplikasi (`bs_app-1` dan `bs_app-2`) serta container Nginx telah dimulai. Opsi `--scale bs_app=2` menjalankan dua replika aplikasi.
 
 ---
 
-### 5. Memeriksa Hasil Load Balancing
+### 7. Mengakses Aplikasi Melalui Nginx
 
-Aplikasi diakses melalui `http://localhost`, yaitu port yang dipublikasikan oleh Nginx. Status container dan log aplikasi diperiksa untuk memastikan instance dapat menerima permintaan.
+Setelah container aktif, aplikasi diakses melalui alamat lokal.
 
 <img src="images/07-load-balancing.png" width="700">
 
-<img src="images/08-docker-logs.png" width="700">
-
-<img src="images/09-docker-logs-detail..png" width="700">
-
-**Penjelasan:** Halaman aplikasi BlackSheep berhasil ditampilkan melalui `localhost`. Daftar container memperlihatkan dua instance aplikasi dalam kondisi berjalan, dan log kedua instance mencatat permintaan HTTP dengan status `200 OK`. Hasil ini menunjukkan aplikasi dapat diakses melalui Nginx dan kedua instance menerima permintaan.
+**Penjelasan:**
+Halaman utama BlackSheep berhasil ditampilkan melalui `localhost`. Ini menunjukkan endpoint yang dipublikasikan oleh Nginx dapat dijangkau dan permintaan diteruskan ke aplikasi.
 
 ---
 
-## 4.2 Failure Detection
+### 8. Memeriksa Status Container
 
-### 6. Pengujian Heartbeat
-
-Skrip `check-server.py` mencoba membuat koneksi TCP ke host dan port yang diberikan. Pengujian yang terdokumentasi pada tangkapan layar menggunakan port `44777`:
+Status container diperiksa menggunakan perintah berikut:
 
 ```powershell
-cd 05\heartbeat
+docker ps
+```
+
+<img src="images/08-docker-logs.png" width="700">
+
+**Penjelasan:**
+Output memperlihatkan container Nginx dan kedua replika aplikasi berstatus `Up`. Port host 80 dipetakan ke port 80 pada container Nginx, sehingga klien dapat mengakses layanan melalui `localhost`.
+
+---
+
+### 9. Memeriksa Log Kedua Replika Aplikasi
+
+Log container diperiksa untuk melihat aktivitas aplikasi setelah halaman diakses.
+
+<img src="images/09-docker-logs-detail..png" width="700">
+
+**Penjelasan:**
+Log kedua replika menunjukkan proses Uvicorn telah aktif dan permintaan HTTP seperti `GET /` serta permintaan aset mendapat respons `200 OK`. Bukti ini menunjukkan kedua container menerima permintaan selama pengujian. Tangkapan layar ini mendukung pengujian jalur layanan melalui Nginx, tetapi tidak menampilkan metrik atau kebijakan pembagian beban secara langsung.
+
+---
+
+## 4.2 Failure Detection dan Pemulihan Kegagalan
+
+### 10. Pengujian Heartbeat
+
+Pemeriksaan heartbeat dilakukan dengan mencoba menjangkau server pada alamat dan port tertentu. Pada tangkapan layar, perintah yang dijalankan adalah:
+
+```powershell
 py check-server.py localhost 44777
 ```
 
 <img src="images/09-heartbeat.png" width="700">
 
-**Penjelasan:** Skrip menampilkan `Server down`, yang berarti tidak ada layanan yang menerima koneksi pada `localhost:44777` saat pengujian tersebut dilakukan. Hasil ini merupakan pemeriksaan pada kondisi saat itu; port tersebut digunakan oleh server pengembangan lokal ketika aplikasi dijalankan, sedangkan aplikasi dalam Docker diakses melalui port 80.
+**Penjelasan:**
+Skrip menampilkan `Server down` untuk `localhost:44777`, yang berarti layanan pengembangan pada port tersebut tidak dapat dijangkau saat pemeriksaan dilakukan. Hasil ini sesuai jika server lokal yang sebelumnya berjalan pada port 44777 sudah dihentikan. Perlu dibedakan bahwa pada pengujian Docker, endpoint Nginx dipublikasikan pada port 80.
 
 ---
 
-### 7. Pengujian Retry dengan Tenacity
+### 11. Pengujian Retry dengan Tenacity
 
-Skrip `check-retry.py` mengirim permintaan ke `http://localhost:44777`. Dekorator Tenacity mengatur maksimal lima percobaan dan jeda eksponensial dengan nilai minimum empat detik dan maksimum sepuluh detik. Dependensi yang diperlukan adalah `tenacity` dan `requests`.
+Skrip `check-retry.py` menggunakan Tenacity untuk mengulang permintaan HTTP yang gagal karena `ConnectionError`.
+
+Perintah yang digunakan dari direktori `failure-detection`:
 
 ```powershell
-cd 05\failure-detection
-uv pip install tenacity requests
-py check-retry.py
+python check-retry.py
 ```
 
-**Penjelasan:** Jika koneksi gagal, permintaan dicoba ulang sesuai kebijakan tersebut. Jika semua percobaan tetap gagal, skrip menangkap dan menampilkan pesan kegagalan. Berkas hasil praktikum menyediakan konfigurasi dan skrip pengujian; tangkapan layar hasil eksekusi retry tidak disertakan.
+Konfigurasi skrip membatasi percobaan hingga lima kali dengan jeda *exponential backoff* antara 4 sampai 10 detik. Jika layanan di `localhost:44777` tidak tersedia setelah seluruh percobaan, skrip menampilkan pesan kegagalan. Karena tidak terdapat screenshot keluaran pengujian retry pada folder bukti, bagian ini menjelaskan perilaku berdasarkan konfigurasi skrip, bukan mengklaim hasil eksekusi tertentu.
 
 ---
 
-### 8. Pengujian Circuit Breaker dengan PyBreaker
+### 12. Pengujian Circuit Breaker
 
-Skrip `check-circuit-breaker.py` juga mengirim permintaan ke `http://localhost:44777`. Circuit breaker dikonfigurasi dengan batas empat kegagalan (`fail_max=4`) dan waktu reset 20 detik (`reset_timeout=20`).
+Skrip `check-circuit-breaker.py` menggunakan pustaka PyBreaker untuk membatasi permintaan ke layanan yang berulang kali gagal.
+
+Perintah yang digunakan dari direktori `failure-detection`:
 
 ```powershell
-cd 05\failure-detection
-uv pip install pybreaker requests
-py check-circuit-breaker.py
+python check-circuit-breaker.py
 ```
 
-**Penjelasan:** Konfigurasi tersebut mengilustrasikan ambang kegagalan dan waktu tunggu sebelum circuit breaker dapat mencoba kembali. Skrip melakukan satu pemanggilan permintaan per eksekusi; karena itu, satu kali menjalankan skrip saja belum menunjukkan empat kegagalan berturut-turut atau membuktikan bahwa sirkuit telah terbuka.
+Skrip menetapkan `fail_max=4` dan `reset_timeout=20`, yaitu circuit breaker dirancang terbuka setelah empat kegagalan dan mencoba pulih setelah masa tunggu 20 detik. Karena skrip yang tersedia hanya melakukan satu permintaan dalam satu kali proses dan tidak ada screenshot hasil pengujiannya, bukti yang ada menunjukkan konfigurasi, bukan transisi circuit breaker secara langsung.
 
 ---
 
 # D. KESIMPULAN
 
-Berdasarkan praktikum yang telah dilakukan, dapat disimpulkan bahwa:
-
-1. Nginx dapat digunakan sebagai *reverse proxy* untuk menerima permintaan pada port 80 dan meneruskannya ke service aplikasi BlackSheep.
-2. Docker Compose berhasil menjalankan dua replika aplikasi beserta container Nginx. Halaman aplikasi dapat diakses melalui `localhost`, dan log kedua replika mencatat permintaan dengan status `200 OK`.
-3. Pemeriksaan heartbeat bergantung pada ketersediaan layanan di host dan port yang diuji. Pada pengujian yang terdokumentasi, `localhost:44777` menghasilkan status `Server down`.
-4. Retry dengan jeda eksponensial dan circuit breaker menyediakan pendekatan berbeda untuk menangani kegagalan komunikasi: retry mengulang permintaan, sedangkan circuit breaker membatasi percobaan ketika kegagalan melewati ambang.
-5. Untuk menyimpulkan bahwa mekanisme retry berhasil pulih atau circuit breaker benar-benar terbuka, diperlukan pengujian berulang dengan layanan tersedia dan tidak tersedia serta pencatatan hasil eksekusinya.
-
----
-
-<p align="center">
-
-**Praktikum Pertemuan 05 — Fault Tolerance**
-
-*Sistem Terdistribusi dan Terdesentralisasi*
-
-</p>
+Berdasarkan praktikum yang telah dilakukan, saya memahami bahwa *fault tolerance* dapat dibangun dengan menggabungkan beberapa pendekatan. Dua replika aplikasi BlackSheep dijalankan menggunakan Docker Compose, sedangkan Nginx menjadi endpoint yang meneruskan permintaan ke service aplikasi. Status container dan log menunjukkan layanan aktif serta permintaan HTTP memperoleh respons berhasil. Pada sisi deteksi kegagalan, heartbeat dapat menunjukkan bahwa server pada port yang diperiksa tidak dapat dijangkau. Tenacity dan PyBreaker menyediakan pola retry dan circuit breaker, meskipun pengujian transisi keduanya belum ditampilkan dalam screenshot yang tersedia.
