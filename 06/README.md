@@ -270,38 +270,32 @@ Berdasarkan Modul 06, langkah utama praktikum dimulai dari mengunduh dan mengins
 ---
 
 
+ <p align="center">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br><br>
-
-<p align="center">
-
-**Praktikum Pertemuan 06 — Distributed File System (HDFS)**
+**Praktikum Pert 6 — Git dan GitHub**
 
 *Sistem Terdistribusi dan Terdesentralisasi*
 
 </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
