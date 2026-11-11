@@ -74,7 +74,7 @@ hadoop
 <img src="images/02-hadoop-path-check.png" width="700">
 
 **Penjelasan:**
-Screenshot pertama tersedia dan menunjukkan isi direktori hasil ekstraksi Hadoop, termasuk folder `bin`, `etc`, `lib`, dan `sbin`. Tambahkan screenshot kedua untuk bukti konfigurasi lingkungan atau keluaran perintah `hadoop`; file gambar tersebut belum tersedia.
+Screenshot pertama menunjukkan isi direktori hasil ekstraksi Hadoop, termasuk folder `bin`, `etc`, `lib`, dan `sbin`. Screenshot kedua menampilkan daftar perintah yang tersedia saat `hadoop` dijalankan, sebagai bukti program dapat dipanggil dari terminal.
 
 ---
 
@@ -91,7 +91,7 @@ export PDSH_RCMD_TYPE=ssh
 <img src="images/04-pdsh-verify.png" width="700">
 
 **Penjelasan:**
-Tambahkan screenshot pemasangan `pdsh` dan screenshot pemeriksaan program atau konfigurasi `PDSH_RCMD_TYPE`. Kedua bukti ini belum tersedia di folder `images`.
+Screenshot pertama menampilkan teks proses pemasangan `pdsh`, tetapi perintah yang terlihat menggunakan `echo`, sehingga belum membuktikan program benar-benar terpasang. Screenshot kedua juga menampilkan pengaturan `PDSH_RCMD_TYPE=ssh` dan teks parameter koneksi melalui `echo`; verifikasi dengan menjalankan `pdsh` secara langsung masih diperlukan.
 
 ### Menyiapkan SSH agar koneksi ke localhost tidak memerlukan login
 
@@ -108,7 +108,7 @@ chmod 0600 ~/.ssh/authorized_keys
 <img src="images/06-ssh-localhost-test.png" width="700">
 
 **Penjelasan:**
-Tambahkan screenshot pembuatan kunci dan pengaturan `authorized_keys`, kemudian screenshot pengujian koneksi SSH ke `localhost`. Bukti-bukti tersebut belum tersedia di folder `images`. Pastikan layanan `sshd` sudah berjalan, sesuai persyaratan modul.
+Screenshot pertama menunjukkan pembuatan pasangan kunci RSA untuk pengguna lokal. Pada screenshot kedua, pengujian `ssh localhost` belum berhasil karena koneksi ke port 22 ditolak. Artinya, layanan `sshd` belum menerima koneksi; jalankan layanan tersebut sesuai sistem operasi, lalu ulangi pengujian sebelum menyimpulkan SSH tanpa kata sandi berhasil.
 
 ---
 
@@ -155,10 +155,10 @@ Ganti `yourusername` dengan nama pengguna yang sesuai.
 
 <img src="images/08-xml-configs.png" width="700">
 
-<img src="images/09-core-site-proxyuser.png" width="700">
+<img src="images/06-core-site-proxyuser.png" width="700">
 
 **Penjelasan:**
-Screenshot pertama tersedia dan menunjukkan `fs.defaultFS` bernilai `hdfs://localhost:9000`. Tambahkan screenshot kedua apabila bukti konfigurasi properti `hadoop.proxyuser...` belum tercakup dalam gambar pertama.
+Screenshot pertama menunjukkan `fs.defaultFS` bernilai `hdfs://localhost:9000`. Screenshot kedua memperlihatkan properti `hadoop.proxyuser.acer.groups` dan `hadoop.proxyuser.acer.hosts`, keduanya bernilai `*`, sesuai konfigurasi pengguna pada komputer praktikan.
 
 ### `mapred-site.xml`
 
@@ -178,7 +178,7 @@ Screenshot pertama tersedia dan menunjukkan `fs.defaultFS` bernilai `hdfs://loca
 <img src="images/10-mapred-site.png" width="700">
 
 **Penjelasan:**
-Tambahkan screenshot konfigurasi `mapred-site.xml`; file gambar tersebut belum tersedia.
+Screenshot menunjukkan `mapreduce.framework.name` diatur ke `yarn` dan classpath aplikasi MapReduce diisi dengan lokasi pustaka Hadoop yang diperlukan.
 
 ### `yarn-site.xml`
 
@@ -210,7 +210,7 @@ Tambahkan screenshot konfigurasi `mapred-site.xml`; file gambar tersebut belum t
 <img src="images/11-yarn-site.png" width="700">
 
 **Penjelasan:**
-Tambahkan screenshot konfigurasi `yarn-site.xml`; file gambar tersebut belum tersedia.
+Screenshot memperlihatkan konfigurasi layanan `mapreduce_shuffle`, variabel lingkungan NodeManager, memori NodeManager `4096` MB, alokasi minimum `2048` MB, dan rasio memori `2.1` sesuai petunjuk modul.
 
 ---
 
@@ -222,10 +222,8 @@ Modul mengingatkan bahwa proses ini cukup dilakukan satu kali. Jika dilakukan ke
 hdfs namenode -format
 ```
 
-<img src="images/07-namenode-format.png" width="700">
-
 **Penjelasan:**
-Tambahkan screenshot hasil perintah format NameNode. Bukti ini belum tersedia di folder `images`.
+Perintah `hdfs namenode -format` menginisialisasi metadata NameNode sebelum HDFS digunakan pertama kali. Setelah menjalankannya, periksa keluaran terminal untuk memastikan proses format berhasil. Langkah ini cukup dilakukan satu kali; mengulang format dapat menghapus metadata HDFS yang sudah ada.
 
 ---
 
@@ -255,7 +253,7 @@ Modul menyebutkan bahwa pemantauan layanan dapat dilakukan melalui web setelah d
 <img src="images/15-hdfs-web-monitor.png" width="700">
 
 **Penjelasan:**
-Tambahkan screenshot pertama untuk bukti menjalankan daemon HDFS dan screenshot kedua untuk bukti pemantauan melalui web. Kedua gambar belum tersedia di folder `images`.
+Screenshot pertama menampilkan teks status NameNode dan DataNode, sedangkan screenshot kedua menampilkan teks alamat pemantauan, jumlah node, dan status `HEALTHY`. Namun, perintah yang tampak pada kedua screenshot menggunakan `echo`, bukan perintah untuk menjalankan daemon atau tangkapan layar web sesungguhnya. Karena itu, bukti tersebut belum mengonfirmasi HDFS benar-benar aktif; verifikasi perlu dilakukan dengan menjalankan daemon dan membuka antarmuka NameNode.
 
 ---
 
@@ -270,7 +268,7 @@ Berdasarkan Modul 06, langkah utama praktikum dimulai dari mengunduh dan mengins
 
 <p align="center">
 
-**Praktikum Pertemuan 06 — Distributed File System (HDFS)**
+**Praktikum Pertemuan 6  — Git dan GitHub**
 
 *Sistem Terdistribusi dan Terdesentralisasi*
 
