@@ -267,35 +267,11 @@ Tambahkan screenshot pertama untuk bukti menjalankan daemon HDFS dan screenshot 
 
 Berdasarkan Modul 06, langkah utama praktikum dimulai dari mengunduh dan menginstal Apache Hadoop, dilanjutkan dengan instalasi `pdsh`, konfigurasi Hadoop, format NameNode, pengaturan `JAVA_HOME`, dan menjalankan daemon HDFS. Persiapan SSH disertakan dalam bagian instalasi `pdsh`. Screenshot yang tersedia ditempatkan pada langkah yang sesuai, sedangkan pemanggilan gambar yang belum tersedia disiapkan untuk dilengkapi.
 
----
 
+<p align="center">
 
- <p align="center">
-
-**Praktikum Pert 6 — Git dan GitHub**
+**Praktikum Pertemuan 06 — Distributed File System (HDFS)**
 
 *Sistem Terdistribusi dan Terdesentralisasi*
 
 </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
