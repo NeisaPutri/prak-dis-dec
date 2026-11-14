@@ -157,7 +157,7 @@ docker run -p 5001:5000 flaskr:1.0.0
 
 <img src="images/04-docker-run.png" width="700">
 
-<img src="images/04-docker-browser-5001.png" width="700">
+<img src="images/04-docker-browser-500.png" width="700">
 
 **Penjelasan:**
 Screenshot pertama memperlihatkan *container* berjalan aktif dan melayani permintaan pada port `5000` di dalam lingkungan terisolasi. Screenshot kedua membuktikan aplikasi **Flaskr** dapat diakses melalui peramban pada alamat `http://localhost:5001`.
